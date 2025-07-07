@@ -1,7 +1,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.have_nerd_font = true
 vim.opt.termguicolors = true
+vim.opt.mouse = 'a'
+vim.opt.showmode = false
 
 vim.opt.number = true
 vim.opt.relativenumber = false
@@ -14,8 +17,19 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.wrap = false
+vim.opt.breakindent = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.undofile = true
+
+vim.opt.updatetime = 250
+--vim.opt.timeoutlen = 600
+
+vim.opt.inccommand = 'split'
 
 -- [[ Autocommands ]]
 
@@ -25,12 +39,15 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {pattern = "*.*", command = "silent
 
 -- [[ Keymaps ]]
 
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 
-vim.keymap.set('n', '/', ':Neotree toggle current reveal_force_cwd<cr>')
+--vim.keymap.set('n', '/', ':Neotree toggle current reveal_force_cwd<cr>')
 vim.keymap.set('n', '|', ':Neotree reveal<cr>')
 vim.keymap.set('n', 'gd', ':Neotree float reveal_file=<cfile> reveal_force_cwd<cr>')
 vim.keymap.set('n', '<leader>b', ':Neotree toggle show buffers right<cr>')
@@ -67,6 +84,20 @@ require('lazy').setup({
   require('plugins.bufferline'),        -- "tabs" bar
   require('plugins.neo-tree'),          -- file browser
   require('plugins.telescope'),         -- telescope
+
+  --'lewis6991/gitsigns.nvim',
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+--      signs = {
+--        add = { text = '+' },
+--        change = { text = '~' },
+--        delete = { text = '_' },
+--        topdelete = { text = '‾' },
+--        changedelete = { text = '~' },
+--      },
+    },
+  },
 
   -- [[ Themes ]]
   --require('theme')
