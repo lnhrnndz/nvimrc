@@ -33,9 +33,9 @@ vim.opt.inccommand = "split"
 
 -- [[ Autocommands ]]
 
----- save and load folds automatically
---vim.api.nvim_create_autocmd({"BufWinLeave"}, {pattern = "*.*", command = "mkview"})
---vim.api.nvim_create_autocmd({"BufWinEnter"}, {pattern = "*.*", command = "silent! loadview"})
+-- save and load folds automatically
+vim.api.nvim_create_autocmd({"BufWinLeave"}, {pattern = "*.*", command = "mkview"})
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {pattern = "*.*", command = "silent! loadview"})
 
 -- [[ Keymaps ]]
 
@@ -146,6 +146,7 @@ require("lazy").setup({
       },
     },
   },
+
 
   -- [[ Themes ]]
   --require('theme')

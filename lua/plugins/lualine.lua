@@ -8,7 +8,11 @@ return {
         section_separators = { left = '', right = ''},
       },
       sections = {
-        lualine_b = {{'branch', icons_enabled = false}},
+        lualine_b = {
+          {'branch', icons_enabled = false},
+          'diff',
+          {'diagnostics', icons_enabled = false}
+        },
       }
     }
   end
