@@ -49,9 +49,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 
 --vim.keymap.set('n', '/', ':Neotree toggle current reveal_force_cwd<cr>')
 vim.keymap.set('n', '|', ':Neotree reveal<cr>')
-vim.keymap.set('n', 'gd', ':Neotree float reveal_file=<cfile> reveal_force_cwd<cr>')
+--vim.keymap.set('n', 'gd', ':Neotree float reveal_file=<cfile> reveal_force_cwd<cr>')
 vim.keymap.set('n', '<leader>b', ':Neotree toggle show buffers right<cr>')
-vim.keymap.set('n', '<leader>s', ':Neotree float git_status<cr>')
+--vim.keymap.set('n', '<leader>s', ':Neotree float git_status<cr>')
 
 -- [[ Plugins ]]
 
@@ -85,19 +85,9 @@ require('lazy').setup({
   require('plugins.neo-tree'),          -- file browser
   require('plugins.telescope'),         -- telescope
 
-  --'lewis6991/gitsigns.nvim',
-  {
-    'lewis6991/gitsigns.nvim',
-    opts = {
---      signs = {
---        add = { text = '+' },
---        change = { text = '~' },
---        delete = { text = '_' },
---        topdelete = { text = '‾' },
---        changedelete = { text = '~' },
---      },
-    },
-  },
+  require('plugins.which-key'),
+
+  'lewis6991/gitsigns.nvim',
 
   -- [[ Themes ]]
   --require('theme')
