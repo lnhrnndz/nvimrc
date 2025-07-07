@@ -84,11 +84,12 @@ require("lazy").setup({
   require("plugins.bufferline"), -- "tabs" bar
   require("plugins.neo-tree"), -- file browser
   require("plugins.telescope"), -- telescope
-
+  require("plugins.treesitter"),
+  require("plugins.cmp"),
   require("plugins.which-key"),
-
   "lewis6991/gitsigns.nvim",
 
+  -- [[ LSP ]]
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -102,7 +103,6 @@ require("lazy").setup({
     },
   },
   require("plugins.lspconfig"),
-  require("plugins.cmp"),
 
   { -- Autoformat
     "stevearc/conform.nvim", -- TODO: figure this plugin out
@@ -147,16 +147,28 @@ require("lazy").setup({
     },
   },
 
+  -- Highlight todo, notes, etc in comments
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   -- [[ Themes ]]
   --require('theme')
   --'ayu-theme/ayu-vim',
-  "Shatur/neovim-ayu",
+  {
+    "Shatur/neovim-ayu",
+    priority = 1000,
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require('ayu').setup {
+        styles = {
+          comments = { italic = true },
+        }
+      }
+      vim.cmd.colorscheme 'ayu'
+    end
+  },
   "rebelot/kanagawa.nvim",
   "ellisonleao/gruvbox.nvim",
   "Yazeed1s/oh-lucy.nvim",
   "catppuccin/nvim",
   "olimorris/onedarkpro.nvim",
 })
-
-vim.cmd.colorscheme("ayu")
