@@ -75,13 +75,16 @@ return {
           end
         end
 
-        -- TODO: do i like this?
+        -- TODO: do i like this? ( i don't think so )
         --
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
         --    See `:help CursorHold` for information about when this is executed
         --
         -- When you move your cursor, the highlights will be cleared (the second autocommand).
+        -- NOTE: disabled for now
+        --
+        --[[
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
           local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
@@ -105,6 +108,7 @@ return {
             end,
           })
         end
+        --]]
 
         -- The following code creates a keymap to toggle inlay hints in your
         -- code, if the language server you are using supports them
@@ -126,7 +130,7 @@ return {
       float = { border = 'rounded', source = 'if_many' },
       underline = { severity = vim.diagnostic.severity.ERROR },
       --signs = vim.g.have_nerd_font and {
-      signs = false and {
+      signs = false and { -- NOTE: not using these, replace with line above to use these
         text = {
           [vim.diagnostic.severity.ERROR] = '󰅚 ',
           [vim.diagnostic.severity.WARN] = '󰀪 ',

@@ -47,11 +47,9 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
 
---vim.keymap.set('n', '/', ':Neotree toggle current reveal_force_cwd<cr>')
-vim.keymap.set("n", "|", ":Neotree reveal<cr>")
---vim.keymap.set('n', 'gd', ':Neotree float reveal_file=<cfile> reveal_force_cwd<cr>')
 vim.keymap.set("n", "<leader>b", ":Neotree toggle show buffers right<cr>")
---vim.keymap.set('n', '<leader>s', ':Neotree float git_status<cr>')
+
+vim.keymap.set("n", "<leader>gs", ":Neogit<cr>")
 
 -- [[ Plugins ]]
 
@@ -106,8 +104,10 @@ require("lazy").setup({
     -- this is equivalent to setup({}) function
   },
 
+  -- TODO: toggleterm.nvim
 
   -- [[ LSP ]]
+
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -169,6 +169,7 @@ require("lazy").setup({
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   -- [[ Themes ]]
+
   --require('theme')
   --'ayu-theme/ayu-vim',
   {
