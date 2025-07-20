@@ -81,13 +81,31 @@ require("lazy").setup({
   "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
   require("plugins.lualine"), -- status bar
-  require("plugins.bufferline"), -- "tabs" bar
+  --require("plugins.bufferline"), -- "tabs" bar
   require("plugins.neo-tree"), -- file browser
   require("plugins.telescope"), -- telescope
   require("plugins.treesitter"),
   require("plugins.cmp"),
   require("plugins.which-key"),
-  "lewis6991/gitsigns.nvim",
+  require("plugins.gitsigns"),
+
+  {
+  "NeogitOrg/neogit",
+  dependencies = {
+    "nvim-lua/plenary.nvim",         -- required
+    "sindrets/diffview.nvim",        -- optional - Diff integration
+    "nvim-telescope/telescope.nvim", -- optional
+    },
+  },
+
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
+
 
   -- [[ LSP ]]
   {
