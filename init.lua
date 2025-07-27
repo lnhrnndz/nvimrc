@@ -87,6 +87,8 @@ require("lazy").setup({
   require("plugins.which-key"),
   require("plugins.gitsigns"),
 
+  "lepture/vim-jinja",
+
   {
   "NeogitOrg/neogit",
   dependencies = {
