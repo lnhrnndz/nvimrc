@@ -51,6 +51,13 @@ vim.keymap.set("n", "<leader>b", ":Neotree toggle show buffers right<cr>")
 
 vim.keymap.set("n", "<leader>gs", ":Neogit<cr>")
 
+-- copy to clipboard
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>y", '"+yy')
+-- paste from clipboard
+vim.keymap.set("v", "<leader>p", '"+p')
+vim.keymap.set("n", "<leader>p", '"+p')
+
 -- [[ Plugins ]]
 
 -- [[ Install `lazy.nvim` plugin manager ]]
